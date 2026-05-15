@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgroHub</title>
+  <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+
+<body>
+  <main class="page">
+
+    <div class="video-slider">
+      <video class="background active" muted loop playsinline preload="auto">
+        <source src="../../static/video/agro1.mp4" type="video/mp4">
+      </video>
+
+      <video class="background" muted loop playsinline preload="auto">
+        <source src="../../static/video/agro2.mp4" type="video/mp4">
+      </video>
+
+      <video class="background" muted loop playsinline preload="auto">
+        <source src="../../static/video/agro3.mp4" type="video/mp4">
+      </video>
+
+      <video class="background" muted loop playsinline preload="auto">
+        <source src="../../static/video/agro4.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="dark-overlay"></div>
+
+    <section class="hero-card">
+      <header class="navbar">
+        <div class="logo">
+          <div class="logo-icon"></div>
+          <span>AGROHUB</span>
+        </div>
+
+        <nav class="nav-actions">
+          <button type="button" class="menu-btn">
+            <span>Menu</span>
+            <span class="menu-lines"></span>
+          </button>
+
+          <button type="button" class="connect-btn">Entrar</button>
+
+          <button type="button" class="lang-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="white" stroke-width="1.5"/>
+              <path d="M2 12h20" stroke="white" stroke-width="1.5"/>
+              <path d="M12 2c3 3 3 17 0 20" stroke="white" stroke-width="1.5"/>
+            </svg>
+            <span>PT</span>
+          </button>
+        </nav>
+      </header>
+
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 id="heroTitle">Gestão inteligente da produção</h1>
+
+          <div class="slider-buttons">
+            <button id="prevBtn" type="button" aria-label="Slide anterior">←</button>
+            <button id="nextBtn" type="button" aria-label="Próximo slide">→</button>
+          </div>
+        </div>
+
+        <button class="scroll-button" type="button" aria-label="Próximo slide">
+          <span></span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="../../static/js/script.js"></script>
+</body>
+</html>
