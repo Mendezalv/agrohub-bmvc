@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroHub - Gestão de Rebanho</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="dashboard-body">
+    <div class="glass-container dashboard-glass">
+        <h1 class="neon-title">Gestão de Rebanho</h1>
+
+        <form action="/rebanho/adicionar" method="POST" class="add-form">
+            <input type="text" name="especie" placeholder="Espécie/Raça" required>
+            <input type="number" name="peso" placeholder="Peso (kg)" required>
+            <select name="status">
+                <option value="Saudável">Saudável</option>
+                <option value="Em Tratamento">Em Tratamento</option>
+                <option value="Vacinado">Vacinado</option>
+            </select>
+            <button type="submit" class="neon-btn">Adicionar</button>
+        </form>
+
+        <table class="glass-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Espécie</th>
+                    <th>Peso</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                % for animal in animais:
+                <tr>
+                    <td>{{animal['id']}}</td>
+                    <td>{{animal['especie']}}</td>
+                    <td>{{animal['peso']}} kg</td>
+                    <td><span class="status-badge">{{animal['status']}}</span></td>
+                    <td>
+                        <a href="/rebanho/deletar/{{animal['id']}}" class="delete-btn">Excluir</a>
+                    </td>
+                </tr>
+                % end
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

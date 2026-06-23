@@ -334,3 +334,101 @@ button {
     height: 50px;
   }
 }
+
+.dashboard-body {
+    background-color: #030604;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.dashboard-glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 40px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.neon-title {
+    color: #39FF14;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.add-form {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.add-form input, .add-form select {
+    flex: 1;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(57, 255, 20, 0.3);
+    color: #FFF;
+    border-radius: 8px;
+    outline: none;
+}
+
+.add-form input:focus, .add-form select:focus {
+    border-color: #39FF14;
+}
+
+.neon-btn {
+    background: #39FF14;
+    color: #030604;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.neon-btn:hover {
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
+}
+
+.glass-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.glass-table th, .glass-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-table th {
+    color: #39FF14;
+    font-weight: 500;
+}
+
+.delete-btn {
+    color: #ff4444;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.delete-btn:hover {
+    color: #ff0000;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+}
+
+.status-badge {
+    background: rgba(57, 255, 20, 0.1);
+    color: #39FF14;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85em;
+}
