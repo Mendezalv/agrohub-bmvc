@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroHub - Acesso Restrito</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        
+        body { 
+            margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; 
+            background-color: #030604; color: white; 
+            display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; 
+        }
+        .login-box { 
+            background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; 
+            padding: 40px; width: 350px; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6), 0 0 20px rgba(57, 255, 20, 0.1); 
+        }
+        h2 { color: #39FF14; text-align: center; margin-bottom: 25px; }
+        .input-group { margin-bottom: 20px; position: relative; }
+        input { 
+            width: 100%; padding: 12px; background: rgba(0,0,0,0.5); 
+            border: 1px solid rgba(57, 255, 20, 0.3); border-radius: 8px; 
+            color: white; outline: none; box-sizing: border-box; 
+        }
+        input:focus { border-color: #39FF14; box-shadow: 0 0 10px rgba(57, 255, 20, 0.3); }
+        .btn-login { 
+            width: 100%; padding: 12px; background: #39FF14; color: black; 
+            border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; 
+        }
+        .btn-login:hover { box-shadow: 0 0 15px rgba(57, 255, 20, 0.6); transform: scale(1.02); }
+        .error { color: #ff3333; text-align: center; margin-bottom: 15px; font-size: 14px; display: none; }
+        .toggle-pwd { position: absolute; right: 10px; top: 12px; cursor: pointer; font-size: 14px; user-select: none; }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        <div id="error-msg" class="error">Credenciais inválidas!</div>
+        
+        <form id="loginForm" action="/login" method="POST" onsubmit="return validarForm()">
+            <div class="input-group">
+                <input type="text" id="username" name="username" placeholder="Usuário (admin)" autocomplete="off">
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="Senha (123)">
+                <span class="toggle-pwd" onclick="toggleSenha()">👁️</span>
+            </div>
+            <button type="submit" class="btn-login">Acessar Sistema</button>
+        </form>
+    </div>
+
+    <script>
+        
+        function toggleSenha() {
+            const pwdInput = document.getElementById('password');
+            pwdInput.type = pwdInput.type === 'password' ? 'text' : 'password';
+        }
+
+       
+        function validarForm() {
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            const errorBox = document.getElementById('error-msg');
+            
+            if(user.trim() === '' || pass.trim() === '') {
+                errorBox.innerText = 'Preencha todos os campos!';
+                errorBox.style.display = 'block';
+                return false;
+            }
+            return true;
+        }
+        
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('erro')) {
+            document.getElementById('error-msg').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
