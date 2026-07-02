@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>AgroHub - Editar Animal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: #030604; color: white; display: flex; align-items: center; justify-content: center; height: 100vh; }
+        .edit-box { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 40px; width: 400px; box-shadow: 0 15px 30px rgba(0,0,0,0.6), 0 0 20px rgba(57, 255, 20, 0.1); }
+        h2 { color: #39FF14; text-align: center; margin-bottom: 25px; }
+        .input-group { margin-bottom: 20px; }
+        label { display: block; font-size: 12px; color: #39FF14; margin-bottom: 5px; }
+        input, select { width: 100%; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid rgba(57, 255, 20, 0.3); border-radius: 8px; color: white; outline: none; box-sizing: border-box; }
+        .btn-salvar { width: 100%; padding: 12px; background: #39FF14; color: black; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .btn-voltar { display: block; text-align: center; color: white; text-decoration: none; margin-top: 15px; font-size: 14px; opacity: 0.7; }
+    </style>
+</head>
+<body>
+    <div class="edit-box">
+        <h2>Editar Registro</h2>
+        <form action="/rebanho/editar/{{animal['id']}}" method="POST">
+            <div class="input-group">
+                <label>Espécie/Raça</label>
+                <input type="text" name="especie" value="{{animal['especie']}}" required>
+            </div>
+            <div class="input-group">
+                <label>Peso (kg)</label>
+                <input type="text" name="peso" value="{{animal['peso']}}" required>
+            </div>
+            <div class="input-group">
+                <label>Status Atual: {{animal['status']}}</label>
+                <select name="status">
+                    <option value="Saudável">Saudável</option>
+                    <option value="Vacinado">Vacinado</option>
+                    <option value="Em Tratamento">Em Tratamento</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-salvar">Atualizar Animal</button>
+            <a href="/rebanho" class="btn-voltar">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

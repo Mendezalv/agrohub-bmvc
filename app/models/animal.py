@@ -27,6 +27,21 @@ class Animal:
         if not texto or str(texto).strip() == "":
             return f"{campo} Não Informado"
         return str(texto).strip()
+    
+    @classmethod
+    def atualizar(cls, animal_id, especie, peso, status):
+        animais = cls.ler_todos()
+        for a in animais:
+            if a['id'] == animal_id:
+                
+                temp = cls(especie, peso, status, id_animal=animal_id)
+                a['especie'] = temp.especie
+                a['peso'] = temp.peso
+                a['status'] = temp.status
+                break
+                
+        with open(cls.__arquivo_db, 'w', encoding='utf-8') as f:
+            json.dump(animais, f, indent=4)
 
     
     @property
